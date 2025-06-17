@@ -59,7 +59,7 @@ jetson-inference/python/training/classification/data/faces/
 ### 3. Training
 
 1. Enable more memory: `echo 1 | sudo tee /proc/sys/vm/overcommit_memory`
-2. Train the model (I used batch size of 4 and 10 epochs)
+2. Train the model (I used batch size of 8)
   ```
   cd jetson-inference
   ./docker/run.sh
