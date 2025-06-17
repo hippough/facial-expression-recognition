@@ -43,6 +43,16 @@ sudo make install
 Organize images like this:
 ```
 jetson-inference/python/training/classification/data/faces/
+├── train/
+│   ├── angry/
+│   ├── disgust/
+│   ├── fear/
+│   ├── happy/
+│   ├── neutral/
+│   ├── sad/
+│   └── surprise/
+├── val/
+└── test/
 
 ```
 
