@@ -63,7 +63,7 @@ jetson-inference/python/training/classification/data/faces/
   ```
   cd jetson-inference
   ./docker/run.sh
-  cd jetson-inference/python/training/classification
+  cd python/training/classification
   python3 train.py --model-dir=models/faces data/faces
   ```
 3. Export Model
