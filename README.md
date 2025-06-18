@@ -10,7 +10,7 @@ The system can classify facial expressions into 7 distinct emotional categories,
 
 ### Model Architecture
 
-The model uses a ResNet-18 architecture that has been retrained on the [Face Expression Recognition Dataset](https://www.kaggle.com/datasets/jonathanoheix/face-expression-recognition-dataset?resource=download).
+The model uses a ResNet-18 architecture that has been retrained on the [Face Expression Recognition Dataset](https://www.kaggle.com/datasets/jonathanoheix/face-expression-recognition-dataset?resource=download). For training, 100 images per emotion category were used from the original dataset.
 
 ### Emotion Categories
 
