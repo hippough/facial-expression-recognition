@@ -88,7 +88,7 @@ imagenet.py --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output
 
 ### Live Camera
 ```
-imagenet.py --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/labels.txt /dev/video0
+imagenet.py --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/labels.txt /dev/video0 output.mp4
 ```
 
 ### Process Video
