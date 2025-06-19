@@ -1,28 +1,24 @@
-# Facial Expression Recognition
+# Footwear Image Classification
 
-This project implements facial expression recognition system using NVIDIA Jetson Inference library. The model has been retrained on a comprehensive facial emotion dataset to classify human emotions with high accuracy.
+This project implements a footwear image classification system using NVIDIA Jetson Inference Library. The model has been retrained on a comprehensive footwear dataset to classify different types of shoes with high accuracy.
 
 ## Overview
 
-The system can classify facial expressions into 7 distinct emotional categories, making it suitable for applications in human-computer interaction, sentiment analysis, and behavioral studies.
+The system can classify footwear into 3 distinct categories, making it suitable for applications in e-commerce, inventory management, fashion analysis, and automated retail systems.
 
 ## The Algorithm
 
 ### Model Architecture
 
-The model uses a ResNet-18 architecture that has been retrained on the [Face Expression Recognition Dataset](https://www.kaggle.com/datasets/jonathanoheix/face-expression-recognition-dataset?resource=download). For training, 100 images per emotion category were used from the original dataset.
+The model uses a ResNet-18 architecture that has been retrained on [this footwear classification dataset](https://www.kaggle.com/datasets/hasibalmuzdadid/shoe-vs-sandal-vs-boot-dataset-15k-images). For training, 4000 images were used for each category, 500 were used for validation, and 500 were used for testing.
 
-### Emotion Categories
+### Footwear Categories
 
-The model classifies facial expressions into the following 7 categories:
+The model classifies footwear into the following 3 categories:
 
-1. Angry
-2. Disgust
-3. Fear
-4. Happy
-5. Neutral
-6. Sad
-7. Surprise
+1. Boot
+2. Sandal
+3. Shoe
 
 ## Setup
 
@@ -42,15 +38,11 @@ sudo make install
 
 Organize images like this:
 ```
-jetson-inference/python/training/classification/data/faces/
+jetson-inference/python/training/classification/data/footwear/
 ├── train/
-│   ├── angry/
-│   ├── disgust/
-│   ├── fear/
-│   ├── happy/
-│   ├── neutral/
-│   ├── sad/
-│   └── surprise/
+│   ├── boot/
+│   ├── sandal/
+│   ├── shoe/
 ├── val/
 └── test/
 
@@ -64,12 +56,12 @@ jetson-inference/python/training/classification/data/faces/
   cd jetson-inference
   ./docker/run.sh
   cd python/training/classification
-  python3 train.py --model-dir=models/faces data/faces
+  python3 train.py --model-dir=models/footwear data/footwear
   ```
 3. Export Model
   ```
   # Still in docker container:
-  python3 onnx_export.py --model-dir=models/faces
+  python3 onnx_export.py --model-dir=models/footwear
   ```
 
 ## Using the Model
@@ -77,13 +69,13 @@ jetson-inference/python/training/classification/data/faces/
 ### Set Variables
 ```
 cd jetson-inference/python/training/classification
-NET=models/faces
-DATASET=data/faces
+NET=models/footwear
+DATASET=data/footwear
 ```
 
 ### Test on Image
 ```
-imagenet.py --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/labels.txt $DATASET/test/happy/image.jpg result.jpg
+imagenet.py --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/labels.txt $DATASET/test/boot/image.jpg result.jpg
 ```
 
 ### Live Camera
@@ -97,7 +89,7 @@ imagenet.py --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output
 ```
 
 ## Resources
-* [Dataset](https://www.kaggle.com/datasets/jonathanoheix/face-expression-recognition-dataset?resource=download)
+* [Dataset](https://www.kaggle.com/datasets/hasibalmuzdadid/shoe-vs-sandal-vs-boot-dataset-15k-images)
 * [ImageNet Documentation](https://github.com/dusty-nv/jetson-inference/blob/master/docs/imagenet-console-2.md)
 * [Jetson Inference GitHub](https://github.com/dusty-nv/jetson-inference)
 * [Video Demonstration](link)
